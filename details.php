@@ -1,5 +1,6 @@
 <?php
 session_start();
+$student_id = "";
 if (isset($_SESSION['id'])) {
     $student_id = $_SESSION['id'];
 }
@@ -75,16 +76,20 @@ $result2 = mysqli_query($conn, $sql2);
                 platform)
             </span>
         </p>
-        <?php if (isset($_SESSION['id'])) { ?>
-            <?php if ($_SESSION['role'] != 'admin') { ?>
-                <?php if (mysqli_num_rows($result2) > 0) { ?>
-                    <h3>You have already registered for this contest!</h3>
-                <?php } else { ?>
-                    <a href="student/participate.php?id=<?php echo $id; ?>" class="btn btn-success px-5">Register</a>
+        <?php if (date("Y-m-d") <= $row['last_registration']) { ?>
+            <?php if (isset($_SESSION['id'])) { ?>
+                <?php if ($_SESSION['role'] != 'admin') { ?>
+                    <?php if (mysqli_num_rows($result2) > 0) { ?>
+                        <h3>You have already registered for this contest!</h3>
+                    <?php } else { ?>
+                        <a href="student/participate.php?id=<?php echo $id; ?>" class="btn btn-success px-5">Register</a>
+                    <?php } ?>
                 <?php } ?>
+            <?php } else { ?>
+                <h4>Please login with a valid student profile to register for this contest.</h4>
             <?php } ?>
         <?php } else { ?>
-            <h4>Please login with a valid student profile to register for this contest.</h4>
+            <h4>Registration has been closed for this contest.</h4>
         <?php } ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

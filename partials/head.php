@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="image/png" sizes="16x16" rel="icon" href="http://localhost/wonderkidz/assets/favicon.png">
     <title>WonderKidz |
         <?php echo $pageTitle; ?>
     </title>
@@ -16,6 +17,10 @@
     <style>
         .ck-editor__editable_inline {
             min-height: 150px;
+        }
+        #logo {
+            height: 30px;
+            width: 30px;
         }
     </style>
 </head>

@@ -6,9 +6,13 @@
 
 <nav class="navbar bg-primary">
     <div class="container-fluid px-3">
-        <a href="http://localhost/wonderkidz/">
-            <span class="navbar-brand mb-0 h1 text-white">WonderKidz</span>
-        </a>
+        <div class="d-flex align-items-center">
+            <img id="logo" src="http://localhost/wonderkidz/assets/logo.png" alt="Logo">
+            <span>&nbsp;&nbsp;</span>
+            <a href="http://localhost/wonderkidz/">
+                <span class="navbar-brand mb-0 h1 text-white">WonderKidz</span>
+            </a>
+        </div>
         <div>
             <?php if (isset($_SESSION['id'])) {
                 if ($_SESSION['role'] == 'admin') { ?>
